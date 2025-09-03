@@ -678,3 +678,13 @@ main {
   font-size: 14px;
   color: #444;
 }
+
+/* 768px altı cihazlar için */
+@media (max-width: 768px) {
+  .menu {
+    display: block; /* yatay menüyü dikey yap */
+  }
+  .product-card {
+    width: 100%; /* kutuları tam genişlik yap */
+  }
+}
