@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mobil Hat Tarifeleri</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Giriş yapılmamışsa yönlendirme
+    if (sessionStorage.getItem("loggedIn") !== "true") {
+      alert("Bu sayfaya erişmek için giriş yapmalısınız.");
+      window.location.href = "login.html";
+    }
+  </script>
+</head>
+<body class="fade">
+
+  <header>
+    <div class="logo">Türk Telekom</div>
+    <nav class="navbar">
+      <ul class="menu">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li class="dropdown">
+          <a href="paketler.html">Paketler</a>
+          <ul class="submenu">
+            <li><a href="ev-interneti.html">Ev İnterneti</a></li>
+            <li><a href="mobil-hat.html">Mobil Hat</a></li>
+            <li><a href="fırsatlar.html">Kampanyalar</a></li>
+          </ul>
+        </li>
+        <li><a href="fırsatlar.html">Fırsatlar</a></li>
+        <li><a href="basvuru.html">Başvuru</a></li>
+        <li><a href="sss.html">SSS</a></li>
+        <li><a href="sepet.html">Sepet</a></li>
+        <li><a href="#" onclick="logout()">Çıkış Yap</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="content">
+    <h1>Mobil Hat Tarifeleri</h1>
+
+    <h2>Faturalı Tarifeler</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Mini Fatura</h3>
+        <p>750 DK / 5 GB / 250 SMS</p>
+        <p><strong>Fiyat:</strong> 79 TL / Ay</p>
+        <button class="btn" onclick="toggleDetay(this)">Detaylı Bilgi</button>
+        <div class="detay-goster" style="display: none;">
+          <p>Mini Fatura tarifesi, düşük kullanım için idealdir. Aşım durumunda ekstra ücretlendirme olabilir.</p>
+          <button class="btn" onclick="sepeteEkle('Mini Fatura', 79)">Sipariş Ver</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Orta Paket</h3>
+        <p>1000 DK / 10 GB / 500 SMS</p>
+        <p><strong>Fiyat:</strong> 109 TL / Ay</p>
+        <button class="btn" onclick="toggleDetay(this)">Detaylı Bilgi</button>
+        <div class="detay-goster" style="display: none;">
+          <p>Orta Paket, hem internet hem konuşma için dengeli kullanım sunar. Orta düzey kullanıcılar için uygundur. Kota aşımında standart ücretlendirme geçerlidir.</p>
+          <button class="btn" onclick="sepeteEkle('Orta Paket', 109)">Sipariş Ver</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Maxi Fatura</h3>
+        <p>Sınırsız DK / 25 GB / 1000 SMS</p>
+        <p><strong>Fiyat:</strong> 149 TL / Ay</p>
+        <button class="btn" onclick="toggleDetay(this)">Detaylı Bilgi</button>
+        <div class="detay-goster" style="display: none;">
+          <p>Maxi Fatura, yoğun internet ve konuşma kullanımı yapan kullanıcılar içindir. Sınırsız konuşma avantajı ile her an bağlantıda kalabilirsiniz. Tarife içeriği aşıldığında ek ücret uygulanmaz, sabit fiyatlıdır.</p>
+          <button class="btn" onclick="sepeteEkle('Maxi Fatura', 149)">Sipariş Ver</button>
+        </div>
+      </div>
+    </div> <!-- ✅ Faturalı kartlar için eksik div buraya eklendi -->
+
+    <h2 style="margin-top: 50px;">Faturasız Tarifeler</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Genç 8GB</h3>
+        <p>750 DK / 8 GB / 250 SMS</p>
+        <p><strong>Fiyat:</strong> 95 TL</p>
+        <button class="btn" onclick="toggleDetay(this)">Detaylı Bilgi</button>
+        <div class="detay-goster" style="display: none;">
+          <p>Genç 8GB, genç kullanıcıların internet, konuşma ve mesajlaşma ihtiyaçlarını karşılayacak şekilde hazırlanmıştır. Tarife bitiminde bakiye yeterliyse otomatik olarak yenilenir.</p>
+          <button class="btn" onclick="sepeteEkle('Genç 8GB', 95)">Sipariş Ver</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Bol GB 15</h3>
+        <p>1000 DK / 15 GB / 500 SMS</p>
+        <p><strong>Fiyat:</strong> 119 TL</p>
+        <button class="btn" onclick="toggleDetay(this)">Detaylı Bilgi</button>
+        <div class="detay-goster" style="display: none;">
+          <p>Bol GB 15, bol internet kullananlar için idealdir. 15 GB internet, sosyal medya ve video izlemeyi seven kullanıcılar için avantajlıdır. Paket süresi 30 gündür.</p>
+          <button class="btn" onclick="sepeteEkle('Bol GB 15', 119)">Sipariş Ver</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Konuşkan</h3>
+        <p>Sınırsız DK / 5 GB / 100 SMS</p>
+        <p><strong>Fiyat:</strong> 89 TL</p>
+        <button class="btn" onclick="toggleDetay(this)">Detaylı Bilgi</button>
+        <div class="detay-goster" style="display: none;">
+          <p>Konuşkan tarifesi, sınırsız dakika özelliği ile özellikle konuşma yoğunluğu olan kullanıcılar için uygundur. İnternet ve SMS ihtiyacını düşük seviyede karşılar.</p>
+          <button class="btn" onclick="sepeteEkle('Konuşkan', 89)">Sipariş Ver</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function logout() {
+      sessionStorage.clear();
+      alert("Oturum sonlandırıldı.");
+      window.location.href = "login.html";
+    }
+
+    window.addEventListener("load", function () {
+      const loader = document.getElementById("loader");
+      if (loader) loader.style.display = "none";
+    });
+
+    function toggleDetay(button) {
+      const detayKisim = button.nextElementSibling;
+      const acikMi = detayKisim.style.display === "block";
+      if (acikMi) {
+        detayKisim.style.display = "none";
+        button.textContent = "Detaylı Bilgi";
+      } else {
+        detayKisim.style.display = "block";
+        button.textContent = "Daha Az";
+      }
+    }
+
+    function sepeteEkle(ad, fiyat) {
+      let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+      sepet.push({ ad: ad, fiyat: fiyat });
+      localStorage.setItem("sepet", JSON.stringify(sepet));
+      window.location.href = "sepet.html";
+    }
+  </script>
+
+  <footer>
+    <p>© 2025 Türk Telekom Satış Noktası</p>
+    <p>İletişim: 0 (555) 555 55 55 | Sosyal Medya: @turktelekom</p>
+  </footer>
+</body>
+</html>

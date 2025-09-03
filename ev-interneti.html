@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ev İnterneti</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Giriş yapılmamışsa kullanıcıyı login sayfasına yönlendir
+    if (sessionStorage.getItem("loggedIn") !== "true") {
+      alert("Bu sayfaya erişmek için giriş yapmalısınız.");
+      window.location.href = "login.html";
+    }
+  </script>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Türk Telekom</div>
+    <nav class="navbar">
+      <ul class="menu">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li class="dropdown">
+          <a href="paketler.html">Paketler</a>
+          <ul class="submenu">
+            <li><a href="ev-interneti.html">Ev İnterneti</a></li>
+            <li><a href="mobil-hat.html">Mobil Hat</a></li>
+            <li><a href="fırsatlar.html">Kampanyalar</a></li>
+          </ul>
+        </li>
+        <li><a href="fırsatlar.html">Fırsatlar</a></li>
+        <li><a href="basvuru.html">Başvuru</a></li>
+        <li><a href="sss.html">SSS</a></li>
+        <li><a href="sepet.html">Sepet</a></li>
+        <li><a href="#" onclick="logout()">Çıkış Yap</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="content">
+    <h1>Ev İnterneti Paketleri</h1>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Standart 24 Mbps</h3>
+        <p><strong>Hız:</strong> 24 Mbps</p>
+        <p><strong>Kota:</strong> 100 GB (AKK)</p>
+        <p><strong>Taahhüt:</strong> 12 Ay</p>
+        <p><strong>Fiyat:</strong> 99 TL / Ay</p>
+        <button class="btn" onclick="toggleDetay(this)">Detaylı Bilgi</button>
+        <div class="detay-goster" style="display: none;">
+          <p>Bu paket, temel internet kullanımına uygundur. Video izleme, e-posta kontrolü ve sosyal medya için yeterlidir.</p>
+          <button class="btn" onclick="sepeteEkle('Standart 24 Mbps', 99)">Sipariş Ver</button>
+        </div>       
+      </div>
+
+      <div class="card">
+        <h3>Fiber 50 Mbps</h3>
+        <p><strong>Hız:</strong> 50 Mbps</p>
+        <p><strong>Kota:</strong> Sınırsız</p>
+        <p><strong>Taahhüt:</strong> 24 Ay</p>
+        <p><strong>Fiyat:</strong> 139 TL / Ay</p>
+        <button class="btn" onclick="toggleDetay(this)">Detaylı Bilgi</button>
+        <div class="detay-goster" style="display: none;">
+          <p>Orta seviye kullanıcılar için ideal. Aynı anda birden fazla cihaz bağlanabilir. Online oyun ve HD video izleme için uygundur.</p>
+          <button class="btn" onclick="sepeteEkle('Fiber 50 Mbps', 139)">Sipariş Ver</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Ultra 100 Mbps</h3>
+        <p><strong>Hız:</strong> 100 Mbps</p>
+        <p><strong>Kota:</strong> Sınırsız</p>
+        <p><strong>Taahhüt:</strong> 24 Ay + Modem Hediye</p>
+        <p><strong>Fiyat:</strong> 179 TL / Ay</p>
+        <button class="btn" onclick="toggleDetay(this)">Deraylı Bilgi</button>
+        <div class="detay-goster" style="display: none;">
+          <p>Yüksek hız isteyen kullanıcılar için uygundur. 4K video izleme, büyük dosya indirme ve yüksek hızlı oyunlar için idealdir. Ücretsiz modem kampanyası ile birlikte sunulur.</p>
+          <button class="btn" onclick="sepeteEkle('Ultra 100 Mbps', 179)">Sipariş Ver</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function logout() {
+      sessionStorage.clear();
+      alert("Oturum sonlandırıldı.");
+      window.location.href = "login.html";
+    }
+  </script>
+
+<script>
+    function logout() {
+      sessionStorage.clear();
+      alert("Oturum sonlandırıldı.");
+      window.location.href = "login.html";
+    }
+
+    window.addEventListener("load", function () {
+      const loader = document.getElementById("loader");
+      if (loader) loader.style.display = "none";
+    });
+
+    function toggleDetay(button) {
+      const detayKisim = button.nextElementSibling;
+      const acikMi = detayKisim.style.display === "block";
+      if (acikMi) {
+        detayKisim.style.display = "none";
+        button.textContent = "Detaylı Bilgi";
+      } else {
+        detayKisim.style.display = "block";
+        button.textContent = "Daha Az";
+      }
+    }
+
+    function sepeteEkle(ad, fiyat) {
+      let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+      sepet.push({ ad: ad, fiyat: fiyat });
+      localStorage.setItem("sepet", JSON.stringify(sepet));
+      window.location.href = "sepet.html";
+    }
+  </script>
+
+
+  <footer>
+    <p>© 2025 Türk Telekom Satış Noktası</p>
+    <p>İletişim: 0 (555) 555 55 55 | Sosyal Medya: @turktelekom</p>
+  </footer>
+
+</body>
+</html>

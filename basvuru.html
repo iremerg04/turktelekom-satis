@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Detaylı Bilgilendirme</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+  if (sessionStorage.getItem("loggedIn") !== "true") {
+    alert("Bu sayfaya erişmek için giriş yapmalısınız.");
+    window.location.href = "login.html";
+  }
+</script>
+  <style>
+    .detaylar-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .detay-kutu {
+      background-color: #f1f6fc;
+      border-radius: 10px;
+      padding: 20px;
+      flex: 1;
+      min-width: 300px;
+      max-width: 550px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .detay-kutu h2 {
+      color: #005ea8;
+      border-bottom: 2px solid #005ea8;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+
+    .detay-kutu h4 {
+      margin-top: 15px;
+      color: #003f6b;
+    }
+
+    .detay-kutu ul {
+      padding-left: 20px;
+    }
+
+    .detay-kutu p {
+      margin: 5px 0 10px 0;
+    }
+
+    footer {
+      background-color: #003f6b;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+<script>
+  if (sessionStorage.getItem("loggedIn") !== "true") {
+    alert("Lütfen önce giriş yapınız.");
+    window.location.href = "login.html";
+  }
+</script>
+  <header>
+    <div class="logo">Türk Telekom</div>
+    <nav class="navbar">
+  <ul class="menu">
+    <li><a href="index.html">Ana Sayfa</a></li>
+
+    <li class="dropdown">
+      <a href="paketler.html">Paketler</a>
+      <ul class="submenu">
+        <li><a href="ev-interneti.html">Ev İnterneti</a></li>
+        <li><a href="mobil-hat.html">Mobil Hat</a></li>
+        <li><a href="fırsatlar.html">Kampanyalar</a></li>
+      </ul>
+    </li>
+
+    <li><a href="fırsatlar.html">Fırsatlar</a></li>
+    <li><a href="basvuru.html">Başvuru</a></li>
+    <li><a href="sss.html">SSS</a></li>
+    <li><a href="sepet.html">Sepet</a></li>
+    <li><a href="#" onclick="logout()">Çıkış Yap</a></li>
+  </ul>
+</nav>
+
+  </header>
+
+  <div class="detaylar-wrapper">
+    <!-- Ev İnterneti Kısmı -->
+    <div class="detay-kutu">
+      <h2>Ev İnterneti</h2>
+
+      <h4>Başvuru Koşulları</h4>
+      <ul>
+        <li>Başvuru sahibi 18 yaşından büyük olmalıdır.</li>
+        <li>Kimlik ve ikametgah belgesi gereklidir.</li>
+        <li>Taahhüt süresince cayma bedeli olabilir.</li>
+        <li>Kampanyalı fiyatlar sadece bu satış noktası için geçerlidir.</li>
+      </ul>
+
+      
+    </div>
+
+    <!-- Mobil Hat Kısmı -->
+    <div class="detay-kutu">
+      <h2>Mobil Hat</h2>
+
+      <h4>Başvuru Koşulları</h4>
+      <ul>
+        <li>Yeni hat veya numara taşıma başvurusu yapılabilir.</li>
+        <li>Kimlik belgesi gereklidir.</li>
+        <li>Faturalı hatlar için kredi notu sorgulanabilir.</li>
+        <li>Faturasız hat için en az 50 TL yükleme yapılmalıdır.</li>
+      </ul>
+
+      
+    </div>
+  </div>
+<script>
+  function logout() {
+    sessionStorage.clear(); // Oturumu sonlandırır
+    alert("Oturum sonlandırıldı.");
+    window.location.href = "login.html"; // Giriş sayfasına yönlendirir
+  }
+</script>
+  <footer>
+    <p>© 2025 Türk Telekom Satış Noktası</p>
+    <p>İletişim: 0 (555) 555 55 55 | @turktelekom</p>
+  </footer>
+
+</body>
+</html>

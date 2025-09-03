@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Kayıt Ol</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .form-container {
+      max-width: 400px;
+      margin: 100px auto;
+      padding: 30px;
+      background-color: #f1f6fc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      color: #003366;
+    }
+
+    .form-container label {
+      display: block;
+      margin-top: 10px;
+      color: #003366;
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #003366;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .form-container p {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .form-container a {
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Kayıt Ol</h2>
+    <form id="registerForm">
+      <label for="registerUsername">Kullanıcı Adı</label>
+      <input type="text" id="registerUsername" required>
+
+      <label for="registerPassword">Şifre</label>
+      <input type="password" id="registerPassword" required>
+
+      <button type="submit">Kayıt Ol</button>
+    </form>
+    <p>Zaten hesabın var mı? <a href="login.html">Giriş Yap</a></p>
+  </div>
+
+  <script src="auth.js"></script>
+</body>
+</html>

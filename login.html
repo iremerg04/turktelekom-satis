@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Giriş Yap</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .form-container {
+      max-width: 400px;
+      margin: 150px auto;
+      padding: 20px;
+      background-color: #f1f6fc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      color: #003366;
+    }
+
+    .form-container label,
+    .form-container input,
+    .form-container button {
+      display: block;
+      width: 100%;
+    }
+
+    .form-container label {
+      margin-top: 10px;
+      color: #003366;
+    }
+
+    .form-container input {
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-container button {
+      padding: 10px;
+      background-color: #003366;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .form-container p {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .form-container a {
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Giriş Yap</h2>
+    <form id="loginForm">
+      <label for="loginUsername">Kullanıcı Adı</label>
+      <input type="text" id="loginUsername" required>
+
+      <label for="loginPassword">Şifre</label>
+      <input type="password" id="loginPassword" required>
+
+      <button type="submit">Giriş Yap</button>
+    </form>
+    <p>Hesabın yok mu? <a href="register.html">Kayıt Ol</a></p>
+    <p><a href="reset-password.html">Şifremi Unuttum</a></p>
+
+  </div>
+
+  <script src="auth.js"></script>
+</body>
+</html>

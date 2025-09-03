@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Paketler</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Sayfa yüklendiğinde giriş kontrolü yapılacak
+    window.addEventListener("DOMContentLoaded", function () {
+      const isLoggedIn = sessionStorage.getItem("loggedIn") === "true";
+
+      const fiyatlar = document.querySelectorAll(".fiyat");
+      const detaylar = document.querySelectorAll(".detay");
+
+      if (isLoggedIn) {
+        fiyatlar.forEach(el => el.style.display = "block");
+        detaylar.forEach(el => el.style.display = "inline-block");
+      } else {
+        fiyatlar.forEach(el => el.style.display = "none");
+        detaylar.forEach(el => el.style.display = "none");
+      }
+    });
+
+    function logout() {
+      sessionStorage.clear();
+      alert("Oturum sonlandırıldı.");
+      window.location.href = "login.html";
+    }
+  </script>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Türk Telekom</div>
+    <nav class="navbar">
+      <ul class="menu">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li class="dropdown">
+          <a href="paketler.html">Paketler</a>
+          <ul class="submenu">
+            <li><a href="ev-interneti.html">Ev İnterneti</a></li>
+            <li><a href="mobil-hat.html">Mobil Hat</a></li>
+            <li><a href="fırsatlar.html">Kampanyalar</a></li>
+          </ul>
+        </li>
+        <li><a href="fırsatlar.html">Fırsatlar</a></li>
+        <li><a href="basvuru.html">Başvuru</a></li>
+        <li><a href="sss.html">SSS</a></li>
+        <li><a href="sepet.html">Sepet</a></li>
+        <li><a href="#" onclick="logout()">Çıkış Yap</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="content">
+    <h1>Kampanyalı Paketler</h1>
+
+    <h2>Ev İnterneti</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Standart Paket</h3>
+        <p>24 Mbps Hız / 100 GB AKK</p>
+        <p class="fiyat"><strong>99 TL / Ay</strong></p>
+        <a href="ev-interneti.html" class="btn detay">Detaylı Bilgi</a>
+      </div>
+      <div class="card">
+        <h3>Limitsiz Fiber</h3>
+        <p>50 Mbps Hız / Sınırsız</p>
+        <p class="fiyat"><strong>139 TL / Ay</strong></p>
+        <a href="ev-interneti.html" class="btn detay">Detaylı Bilgi</a>
+      </div>
+    </div>
+
+    <h2>Mobil Hat</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Faturalı Mini</h3>
+        <p>750 DK / 5 GB / 250 SMS</p>
+        <p class="fiyat"><strong>79 TL / Ay</strong></p>
+        <a href="mobil-hat.html" class="btn detay">Detaylı Bilgi</a>
+      </div>
+      <div class="card">
+        <h3>Faturasız Maxi</h3>
+        <p>1000 DK / 10 GB / 500 SMS</p>
+        <p class="fiyat"><strong>109 TL / Ay</strong></p>
+        <a href="mobil-hat.html" class="btn detay">Detaylı Bilgi</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Türk Telekom Satış Noktası</p>
+    <p>İletişim: 0 (555) 555 55 55 | Sosyal Medya: @turktelekom</p>
+  </footer>
+</body>
+</html>

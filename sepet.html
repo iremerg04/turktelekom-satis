@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Sepetim</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div  class="logo"><h3>Sepetiniz</h3></div>
+    <nav class="navbar">
+
+  <ul class="menu">
+    <li><a href="index.html">Ana Sayfa</a></li>
+
+    <li class="dropdown">
+      <a href="paketler.html">Paketler</a>
+      <ul class="submenu">
+        <li><a href="ev-interneti.html">Ev İnterneti</a></li>
+        <li><a href="mobil-hat.html">Mobil Hat</a></li>
+        <li><a href="fırsatlar.html">Kampanyalar</a></li>
+      </ul>
+    </li>
+
+    <li><a href="fırsatlar.html">Fırsatlar</a></li>
+    <li><a href="basvuru.html">Başvuru</a></li>
+    <li><a href="sss.html">SSS</a></li>
+    <li><a href="sepet.html">Sepet</a></li>
+    <li><a href="#" onclick="logout()">Çıkış Yap</a></li>
+  </ul>
+</nav>
+
+  </header>
+
+  <main>
+    <div id="sepet-alani"></div>
+    <div id="toplam"></div>
+
+    <div class="butonlar">
+      <button onclick="sil()">Sepeti Sil</button>
+      <button onclick="tamamla()">Alışverişi Tamamla</button>
+      <button onclick="devamEt()">Alışverişe Devam Et</button>
+    </div>
+  </main>
+
+  <script>
+    const sepetAlani = document.getElementById("sepet-alani");
+    const toplamAlani = document.getElementById("toplam");
+
+    let sepet = JSON.parse(localStorage.getItem("sepet")) || [];
+
+    if (sepet.length === 0) {
+      sepetAlani.innerHTML = "<p>Sepetiniz boş.</p>";
+    } else {
+      let toplam = 0;
+      let html = "<ul>";
+      sepet.forEach((urun, index) => {
+        html += `<li>${urun.ad} - ${urun.fiyat} TL</li>`;
+        toplam += urun.fiyat;
+      });
+      html += "</ul>";
+      sepetAlani.innerHTML = html;
+      toplamAlani.innerHTML = `<h3>Toplam Tutar: ${toplam} TL</h3>`;
+    }
+
+    function sil(){
+      alert("Sepet Silindi!");
+localStorage.removeItem("sepet");
+window.location.href="sepet.html";
+    }
+
+    function tamamla() {
+      alert("Alışveriş başarıyla tamamlandı!");
+      localStorage.removeItem("sepet");
+      window.location.href = "index.html"; // ya da teşekkür sayfası
+    }
+
+    function devamEt() {
+      window.location.href = "mobil-hat.html";
+    }
+  </script>
+</body>
+</html>

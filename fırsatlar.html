@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fırsatlar</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+  if (sessionStorage.getItem("loggedIn") !== "true") {
+    alert("Bu sayfaya erişmek için giriş yapmalısınız.");
+    window.location.href = "login.html";
+  }
+</script>
+</head>
+<body>
+  <script>
+  if (sessionStorage.getItem("loggedIn") !== "true") {
+    alert("Lütfen önce giriş yapınız.");
+    window.location.href = "login.html";
+  }
+</script>
+  <header>
+    <div class="logo">Türk Telekom</div>
+    <nav class="navbar">
+  <ul class="menu">
+    <li><a href="index.html">Ana Sayfa</a></li>
+
+    <li class="dropdown">
+      <a href="paketler.html">Paketler</a>
+      <ul class="submenu">
+        <li><a href="ev-interneti.html">Ev İnterneti</a></li>
+        <li><a href="mobil-hat.html">Mobil Hat</a></li>
+        <li><a href="fırsatlar.html">Kampanyalar</a></li>
+      </ul>
+    </li>
+
+    <li><a href="fırsatlar.html">Fırsatlar</a></li>
+    <li><a href="basvuru.html">Başvuru</a></li>
+    <li><a href="sss.html">SSS</a></li>
+    <li><a href="sepet.html">Sepet</a></li>
+    <li><a href="#" onclick="logout()">Çıkış Yap</a></li>
+  </ul>
+</nav>
+
+  </header>
+
+  <main class="content">
+    <h1>Güncel Fırsatlar</h1>
+
+    <div class="cards">
+      <div class="card">
+        <img src="E:\projeler\turktelekom.satis\resimler\image.png" alt="Fırsat 1" class="card-img" > 
+        <h3>2 Ay Bedava İnternet</h3>
+        <p>Yeni ev interneti abonelerine özel, ilk 2 ay ücret alınmaz!</p>
+      </div>
+
+      <div class="card">
+        <h3>Ücretsiz Modem Kampanyası</h3>
+        <p>12 ay taahhütle başlatılan paketlerde modem tamamen ücretsiz!</p>
+      </div>
+
+      <div class="card">
+        <h3>Numaranı Taşı Ekstra GB Kazan</h3>
+        <p>Mobil hat numarasını taşıyanlara 3 ay boyunca her ay +5 GB hediye.</p>
+      </div>
+    </div>
+  </main>
+<script>
+  function logout() {
+    sessionStorage.clear(); // Oturumu sonlandırır
+    alert("Oturum sonlandırıldı.");
+    window.location.href = "login.html"; // Giriş sayfasına yönlendirir
+  }
+</script>
+
+  <footer>
+    <p>© 2025 Türk Telekom Satış Noktası</p>
+    <p>İletişim: 0 (555) 555 55 55 | Sosyal Medya: @turktelekom</p>
+  </footer>
+</body>
+</html>
